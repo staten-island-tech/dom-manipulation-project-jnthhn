@@ -15,8 +15,9 @@ console.log(DOMSelector.items);
 function changeColor() {
   let form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
-    event.preventDefault;
+    event.preventDefault();
     console.log(event.target);
+    button.style.backgroundColor = "red";
   });
 }
 changeColor();
