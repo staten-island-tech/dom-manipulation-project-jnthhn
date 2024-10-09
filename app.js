@@ -10,7 +10,7 @@ const movie = {
 //forEach
 movies.forEach((movie) => console.log(movie.title));
 //filter, to get a new array of movies that match criteria
-//array name DOT Array Command then arrow function that accepts singular element of array
+//array name DOT Array CommanTd then arrow function that accepts singular element of array
 const newMovies = movies.filter((movie) => movie.release > 1990);
 console.log(newMovies);
 movies.filter((movie) => movie.release > 1990);
