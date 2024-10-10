@@ -5,6 +5,9 @@ const DOMSelector = {
   header: document.querySelector("h1"),
   description: document.querySelector(".card-desc"),
   items: document.querySelector("li"),
+  cardHeader: document.querySelector(".card-header"),
+  button: document.querySelector(".btn"),
+  form: document.querySelector(".form"),
 };
 
 function changeColor() {
@@ -32,18 +35,19 @@ const items = Array.from(item); //make nodelist into array
 console.log(item);
 //Node list not an array but has several of the array methods does not have filter
 
-items.forEach((el)) => (el.style.color = "red")
+items.forEach((el) => (el.style.color = "red"));
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) => btn.addEventListener("click", function (event){
-  console.log(event.target.textContent);
-})
+buttons.forEach((btn) =>
+  btn.addEventListener("click", function (event) {
+    console.log(event.target.textContent);
+  })
 );
 let album = {
   name: "Abbey Road",
 };
 DOMSelector.container.insertAdjacentHTML(
-  "beforehand",
+  "beforeend",
   '<div class="card"><h2 class="card-header">text</h2></div>'
 );
 
