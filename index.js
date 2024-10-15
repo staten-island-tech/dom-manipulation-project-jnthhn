@@ -1,4 +1,4 @@
-const header = document.querySelector("h1");
+/* const header = document.querySelector("h1");
 console.log(header.parent);
 
 const DOMSelector = {
@@ -54,4 +54,6 @@ DOMSelector.container.insertAdjacentHTML(
 //event listener for form
 //get values from form for widget object
 //create the card insert the card
-//find remove buttons and add event listenders
+//find remove buttons and add event listenders */
+
+const DOMSelectors = {};
