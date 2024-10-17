@@ -56,4 +56,7 @@ DOMSelector.container.insertAdjacentHTML(
 //create the card insert the card
 //find remove buttons and add event listenders */
 
-const DOMSelectors = {};
+const DOMSelectors = {
+  button: document.querySelector(".btn"),
+  form: document.querySelector(".form"),
+};
