@@ -1,30 +1,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Project</title>
     <link rel="stylesheet" href="style.css">
-    <title>DOM Manipulation</title>
 </head>
 <body>
-    <form class="form" action="">
-        <input type="text" class="input" id="input-header">
-        <input type="url" class="input" id="input-img">
-        <input type="text" class="input" id="input-desc">
-        <button type="submit">Click Me</button>
+    <h1>Custom Card Generator</h1>
+    <form class="form">
+        <p>Card Title:</p>
+        <input type="text" id="title-name">
+
+        <p>Image URL:</p>
+        <input type="text" id="img">
+
+        <p>Description:</p>
+        <input type="text" id="desc">
+
+        <button type="submit" class="btn">Confirm</button>
     </form>
-    <h1>Test</h1>
-    <div class="card">
-        <h2>Title</h2>
-        <p class="card-desc">thing goes here</p>
-    </div>
-    <ul>
-        <li>blah</li>
-        <li>blah</li>
-        <li>blah</li>
-        <li>blah</li>
-        <li>blah</li>
-    </ul>
-    <button class="enter">Click Me</button>
+
+    <div class="container"></div>
+
     <script src="index.js"></script>
 </body>
 </html>

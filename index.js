@@ -1,62 +1,59 @@
-/* const header = document.querySelector("h1");
-console.log(header.parent);
-
-const DOMSelector = {
-  header: document.querySelector("h1"),
-  description: document.querySelector(".card-desc"),
-  items: document.querySelector("li"),
-  cardHeader: document.querySelector(".card-header"),
-  button: document.querySelector(".btn"),
+const DOMSelectors = {
   form: document.querySelector(".form"),
+  container: document.querySelector(".container"),
+  title: document.querySelector("#title-name"),
+  img: document.querySelector("#img"),
+  desc: document.querySelector("#desc"),
 };
 
-function changeColor() {
-  let form = document.querySelector("form");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    console.log(event.target);
-    button.style.backgroundColor = "red";
+function createCardObject(title, imgUrl, desc) {
+  return { title, imgUrl, desc }; //sends an object containing the parameters back to the calling function
+}
+
+function clearInputs() {
+  DOMSelectors.title.value = "";
+  DOMSelectors.img.value = "";
+  DOMSelectors.desc.value = "";
+  //clears inputs by setting values back to normal (blank)
+}
+
+function addCard(title, imgUrl, desc) {
+  const cardHTML = `
+    <div class="card">
+      <h4>${title}</h4>
+      <img
+        src="${imgUrl}"
+        alt="Image URL was invalid :("
+        width="100%"
+        height="auto"
+      ></img>
+      <p>${desc}</p>
+      <button class="delete-btn">Delete</button>
+    </div>`;
+  //backticks turn the code into a template literal, allowing variables to be directly injected into HTML without extra parentheses or messing with the formatting
+
+  DOMSelectors.container.insertAdjacentHTML("beforeend", cardHTML);
+
+  const deleteBtn =
+    DOMSelectors.container.lastElementChild.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", function () {
+    deleteBtn.parentElement.remove();
+    // lastElementChild targets the most recently added card, allowing its delete button to work, while parentElement ensures that the button only deletes the card it belongs to
   });
 }
-changeColor();
 
-const DOMSelectors = {
-  header: document.querySelectorAll("h1"),
-  description: document.querySelectorAll(".card-desc"),
-  items: document.querySelectorAll("li"),
-};
-let button = document.querySelector("form");
-button.addEventListener("submit", function (event) {
+function handleSubmit(event) {
   event.preventDefault();
-});
 
-const item = document.querySelectorAll("li");
-const items = Array.from(item); //make nodelist into array
-console.log(item);
-//Node list not an array but has several of the array methods does not have filter
+  const title = DOMSelectors.title.value.trim();
+  const imgUrl = DOMSelectors.img.value.trim();
+  const desc = DOMSelectors.desc.value.trim();
+  //trim deletes any spaces from the beginning or end of the text
+  if (title && imgUrl && desc) {
+    const card = createCardObject(title, imgUrl, desc);
+    addCard(card.title, card.imgUrl, card.desc);
+    clearInputs();
+  }
+}
 
-items.forEach((el) => (el.style.color = "red"));
-
-const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) =>
-  btn.addEventListener("click", function (event) {
-    console.log(event.target.textContent);
-  })
-);
-let album = {
-  name: "Abbey Road",
-};
-DOMSelector.container.insertAdjacentHTML(
-  "beforeend",
-  '<div class="card"><h2 class="card-header">text</h2></div>'
-);
-
-//event listener for form
-//get values from form for widget object
-//create the card insert the card
-//find remove buttons and add event listenders */
-
-const DOMSelectors = {
-  button: document.querySelector(".btn"),
-  form: document.querySelector(".form"),
-};
+DOMSelectors.form.addEventListener("submit", handleSubmit);
